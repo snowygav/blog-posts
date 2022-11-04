@@ -7,7 +7,7 @@ variable "region" {
 
 variable "app_name" {
   description = "The common name for your deployment."
-  default     = "kinesis-rd"
+  default     = "dataeng-kinesis-rd"
 }
 
 variable "env_type" {
@@ -22,7 +22,7 @@ variable "project_name" {
 
 variable "client_name" {
   description = "The team name that is responsible for this deployment."
-  default     = "WP"
+  default     = "Data Engineering"
 }
 
 variable "shard_count" {
@@ -43,7 +43,7 @@ variable "shard_level_metrics" {
 
 variable "s3_bucket_name" {
   description = "s3 bucket name where kinesis firehose put data."
-  default     = "kinesis-rd"
+  default     = ""
 }
 
 variable "storage_input_format" {
@@ -74,7 +74,7 @@ variable "cloudwatch_logging_enabled" {
 variable "cloudwatch_log_group_name" {
   type        = string
   description = "The CloudWatch Logs group name for logging.  Defaults to \"/aws/kinesisfirehose/[NAME]\""
-  default     = "kinesis-rd"
+  default     = "data-eng-kinesis-rd"
 }
 
 variable "cloudwatch_log_stream_name" {
@@ -86,7 +86,7 @@ variable "cloudwatch_log_stream_name" {
 variable "s3_prefix" {
   type        = string
   description = "An extra S3 Key prefix prepended before the time format prefix of records delivered to the AWS S3 Bucket."
-  default     = "tbl-kinesis-rd/"
+  default     = "tbl-dataeng-kinesis-rd/"
 }
 
 variable "s3_error_output_prefix" {

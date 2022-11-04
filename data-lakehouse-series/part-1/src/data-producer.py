@@ -38,7 +38,7 @@ def data_sender(max_record):
                 print(data)
                 try:
                         kinesis.put_record(
-                                StreamName="kinesis-rd-stream",
+                                StreamName="dataeng-kinesis-rd-stream",
                                 Data=data,
                                 PartitionKey="partitionkey")
                 except Exception as e:

@@ -26,7 +26,7 @@ resource "aws_glue_catalog_database" "aws_glue_database" {
 
 // More detail configuration of parameters at https://www.terraform.io/docs/providers/aws/r/glue_catalog_table.html
 resource "aws_glue_catalog_table" "aws_glue_table" {
-  name          = "tbl-${var.app_name}"
+  name          = "${var.s3_prefix}"
   database_name = "${aws_glue_catalog_database.aws_glue_database.name}"
 
   parameters = {
@@ -35,7 +35,7 @@ resource "aws_glue_catalog_table" "aws_glue_table" {
   }
 
   storage_descriptor {
-    location      = "s3://${var.s3_bucket_name}/tbl-${var.app_name}/"
+    location      = "s3://${var.s3_bucket_name}/${var.s3_prefix}/"
     input_format  = "${var.storage_input_format}"
     output_format = "${var.storage_output_format}"
 
