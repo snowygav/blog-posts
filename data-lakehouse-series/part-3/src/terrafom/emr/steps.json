@@ -1,0 +1,17 @@
+[
+    {
+        "action_on_failure": "CONTINUE",
+        "hadoop_jar_step": {
+            "jar": "command-runner.jar",
+            "args": [
+                "spark-submit",
+                "/home/hadoop/blog-posts/data-lakehouse-series/part-3/src/process_data.py",
+                "-r",
+                "s3://dataeng-blog-series/raw/",
+                "-t",
+                "s3://dataeng-blog-series/trusted/"
+            ]
+        },
+        "name": "Process Tickit data - Raw to Trusted."
+    }
+]
