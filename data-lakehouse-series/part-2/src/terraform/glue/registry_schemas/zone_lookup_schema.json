@@ -1,0 +1,37 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "type": "object",
+    "title": "The Taxi Zone Lookup schema",
+    "properties": {
+        "location_id": {
+            "$id": "#/properties/location_id",
+            "type": "integer",
+            "title": "The location_id schema field."
+        },
+        "borough": {
+            "$id": "#/properties/borough",
+            "type": "string",
+            "title": "The borough schema field."
+        },
+        "zone": {
+            "$id": "#/properties/zone",
+            "type": "string",
+            "title": "The zone schema field."
+        },
+        "service_zone": {
+            "$id": "#/properties/service_zone",
+            "type": "string",
+            "title": "The service_zone schema field."
+        },
+        "year": {
+            "$id": "#/properties/year",
+            "type": "integer",
+            "title": "The year schema field."
+        },
+        "month": {
+            "$id": "#/properties/month",
+            "type": "integer",
+            "title": "The month schema field."
+        }
+    }
+}

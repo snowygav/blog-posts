@@ -1,0 +1,107 @@
+[
+    {
+        "action_on_failure": "CONTINUE",
+        "hadoop_jar_step": {
+            "jar": "command-runner.jar",
+            "args": [
+                "spark-submit",
+                "/home/hadoop/blog-posts/data-lakehouse-series/part-2/src/ingest_raw_data.py",
+                "--type",
+                "green",
+                "--year_data",
+                "2019",
+                "--interval",
+                "1-12"
+            ]
+        },
+        "name": "Extract Green Taxi Data - 2019"
+    },
+    {
+        "action_on_failure": "CONTINUE",
+        "hadoop_jar_step": {
+            "jar": "command-runner.jar",
+            "args": [
+                "spark-submit",
+                "/home/hadoop/blog-posts/data-lakehouse-series/part-2/src/ingest_raw_data.py",
+                "--type",
+                "green",
+                "--year_data",
+                "2020",
+                "--interval",
+                "1-12"
+            ]
+        },
+        "name": "Extract Green Taxi Data - 2020"
+    },
+    {
+        "action_on_failure": "CONTINUE",
+        "hadoop_jar_step": {
+            "jar": "command-runner.jar",
+            "args": [
+                "spark-submit",
+                "/home/hadoop/blog-posts/data-lakehouse-series/part-2/src/ingest_raw_data.py", 
+                "--type",
+                "yellow",
+                "--year_data",
+                "2019",
+                "--interval",
+                "1-12"
+            ]
+        },
+        "name": "Extract Yellow Taxi Data - 2019"
+    },
+    {
+        "action_on_failure": "CONTINUE",
+        "hadoop_jar_step": {
+            "jar": "command-runner.jar",
+            "args": [
+                "spark-submit",
+                "/home/hadoop/blog-posts/data-lakehouse-series/part-2/src/ingest_raw_data.py",
+                "--type",
+                "yellow",
+                "--year_data",
+                "2020",
+                "--interval",
+                "1-12"
+            ]
+        },
+        "name": "Extract Yellow Taxi Data - 2020"
+    },
+    {
+        "action_on_failure": "CONTINUE",
+        "hadoop_jar_step": {
+            "jar": "command-runner.jar",
+            "args": [
+                "spark-submit",
+                "/home/hadoop/blog-posts/data-lakehouse-series/part-2/src/process_trusted_data.py",
+                "--type",
+                "yellow"
+            ]
+        },
+        "name": "Process Yellow Taxi Data - Trusted Zone"
+    },
+    {
+        "action_on_failure": "CONTINUE",
+        "hadoop_jar_step": {
+            "jar": "command-runner.jar",
+            "args": [
+                "spark-submit",
+                "/home/hadoop/blog-posts/data-lakehouse-series/part-2/src/process_trusted_data.py",
+                "--type",
+                "green"
+            ]
+        },
+        "name": "Process Green Taxi Data - Trusted Zone"
+    },
+    {
+        "action_on_failure": "CONTINUE",
+        "hadoop_jar_step": {
+            "jar": "command-runner.jar",
+            "args": [
+                "spark-submit",
+                "/home/hadoop/blog-posts/data-lakehouse-series/part-2/src/process_lakehouse_data.py"
+            ]
+        },
+        "name": "Process Data Lakehouse"
+    }
+]
