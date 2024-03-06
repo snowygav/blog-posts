@@ -2,12 +2,12 @@
 
 variable "region" {
   description = "The AWS region we want this bucket to live in."
-  default     = "us-east-1"
+  default     = "ap-southeast-2"
 }
 
 variable "app_name" {
   description = "The common name for your deployment."
-  default     = "dataeng-kinesis-rd"
+  default     = "bastion-kinesis-rd"
 }
 
 variable "env_type" {

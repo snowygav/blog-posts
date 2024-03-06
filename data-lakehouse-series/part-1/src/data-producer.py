@@ -11,7 +11,7 @@ from faker import Faker
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', datefmt='%Y-%d-%mT%H:%M:%S')
 
 # Define Kinesis client service using the us-east-1 region
-kinesis = boto3.client('kinesis', region_name='us-east-1')
+kinesis = boto3.client('kinesis', region_name='ap-southeast-2')
 
 # Function to produce data
 def data_producer():
@@ -38,7 +38,7 @@ def data_sender(max_record):
                 print(data)
                 try:
                         kinesis.put_record(
-                                StreamName="dataeng-kinesis-rd-stream",
+                                StreamName="bastion-kinesis-rd-stream",
                                 Data=data,
                                 PartitionKey="partitionkey")
                 except Exception as e:

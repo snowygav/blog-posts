@@ -57,7 +57,7 @@ resource "aws_iam_role_policy" "read_policy" {
               "*"
           ]
       }
-]
+  ]
 }
 EOF
 }
