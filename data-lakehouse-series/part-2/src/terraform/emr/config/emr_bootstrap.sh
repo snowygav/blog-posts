@@ -8,7 +8,7 @@ sudo wget https://repo1.maven.org/maven2/io/delta/delta-core_2.12/1.0.0/delta-co
 clone_repo()
 {
   REPO=$1
-  BRANCH=$2
+  BRANCH='main'
   GITHUB_TOKEN=`aws secretsmanager get-secret-value --secret-id github_master_token | jq -r '.SecretString'`
   REPO_URL="https://jreissup:$GITHUB_TOKEN@github.com/jreissup/"
   CMD="git clone $REPO_URL$REPO.git --single-branch --branch $BRANCH"

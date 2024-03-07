@@ -4,24 +4,24 @@
 
 variable "region" {
   description = "The AWS region we want to deploy our services."
-  default     = "us-east-1"
+  default     = "ap-southeast-2"
 }
 
 variable "region_az" {
   description = "The AWS region we want to deploy our services."
-  default     = "us-east-1a"
+  default     = "ap-southeast-2a"
 }
 
 variable "key_name" {
-  default = "data-mgmt"
+  default = "emr"
 }
 
 variable "subnet_id" {
-  default = "subnet-xxxxxxxxx"
+  default = "subnet-04c3d6cc8d275cc6f"
 }
 
 variable "vpc_id" {
-  default = "vpc-xxxxxxxxx"
+  default = "vpc-0b25a06d850af0e47"
 }
 
 variable "app_name" {
@@ -45,10 +45,13 @@ variable "team_name" {
 }
 
 variable "s3_bucket_name" {
-  default = "dataeng-blog-series"
+  default = "bastion-dataeng-blog-series"
   description = "The bucket name used by the lakehouse."
 }
 
+variable "client_name" {
+  default = "bastion"
+}
 
 #####################################
 # Redshift 
@@ -199,15 +202,15 @@ variable "emr_instance_profile" {
 }
 
 variable "emr_managed_service_security_group"{
-  default =  "sg-xxxxxxxxx"
+  default =  "sg-07122f487a48c008c"
 }
   
 variable "emr_managed_master_security_group" {
-  default = "sg-xxxxxxxxx"
+  default = "sg-040610a1fd254cdc1"
 }
 
 variable "emr_managed_slave_security_group" {
-  default = "sg-xxxxxxxxx"
+  default = "sg-09be9d23978a3fb9d"
 }
 
 variable "emr_service_role" {

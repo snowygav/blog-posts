@@ -1,6 +1,6 @@
 variable "region" {
   description = "The AWS region we want this bucket to live in."
-  default     = "us-east-1"
+  default     = "ap-southeast-2"
 }
 
 variable "project_name" {
@@ -25,7 +25,7 @@ variable "app_name" {
 
 variable "s3_bucket_name" {
   description = "The bucket name used by the lakehouse."
-  default = "dataeng-blog-series"
+  default = "bastion-dataeng-blog-series"
 }
 
 variable "registry_name" {
@@ -155,66 +155,66 @@ variable "cluster_applications" {
   description = "Name of the applications to be installed"
   default = ["Hadoop", "Hive", "Spark"]
 }
-#------------------------------Master Instance Group------------------------------
+#------------------------------primary Instance Group------------------------------
 
-variable "master_instance_group_name" {
+variable "primary_instance_group_name" {
   type        = string
-  description = "Name of the Master instance group"
-  default = "MasterGroup"
+  description = "Name of the primary instance group"
+  default = "primaryGroup"
 }
 
-variable "master_instance_group_instance_type" {
+variable "primary_instance_group_instance_type" {
   type        = string
-  description = "EC2 instance type for all instances in the Master instance group"
-  default = "m6g.xlarge"
+  description = "EC2 instance type for all instances in the primary instance group"
+  default = "c6g.xlarge"
 }
 
-variable "master_instance_group_instance_count" {
+variable "primary_instance_group_instance_count" {
   type        = number
-  description = "Target number of instances for the Master instance group. Must be at least 1"
+  description = "Target number of instances for the primary instance group. Must be at least 1"
   default     = 1
 }
 
-variable "master_instance_group_ebs_size" {
+variable "primary_instance_group_ebs_size" {
   type        = number
-  description = "Master instances volume size, in gibibytes (GiB)"
+  description = "primary instances volume size, in gibibytes (GiB)"
   default = 30
 }
 
-variable "master_instance_group_ebs_type" {
+variable "primary_instance_group_ebs_type" {
   type        = string
-  description = "Master instances volume type."
+  description = "primary instances volume type."
   default     = "gp2"
 }
 
-variable "master_instance_group_ebs_iops" {
+variable "primary_instance_group_ebs_iops" {
   type        = number
-  description = "The number of I/O operations per second (IOPS) that the Master volume supports"
+  description = "The number of I/O operations per second (IOPS) that the primary volume supports"
   default     = null
 }
 
-variable "master_instance_group_ebs_volumes_per_instance" {
+variable "primary_instance_group_ebs_volumes_per_instance" {
   type        = number
-  description = "The number of EBS volumes with this configuration to attach to each EC2 instance in the Master instance group"
+  description = "The number of EBS volumes with this configuration to attach to each EC2 instance in the primary instance group"
   default     = 1
 }
 
-variable "master_instance_group_bid_price" {
+variable "primary_instance_group_bid_price" {
   type        = string
-  description = "Bid price for each EC2 instance in the Master instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances"
+  description = "Bid price for each EC2 instance in the primary instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances"
   default     = 0.10
 }
 #----------------------Core Instance Group-----------------------------------#
 variable "core_instance_group_name" {
   type        = string
-  description = "Name of the Master instance group"
+  description = "Name of the primary instance group"
   default = "CoreGroup"
 }
 
 variable "core_instance_group_instance_type" {
   type        = string
   description = "EC2 instance type for all instances in the Core instance group"
-  default = "m6g.xlarge"
+  default = "c6g.xlarge"
 }
 
 variable "core_instance_group_instance_count" {
@@ -256,11 +256,11 @@ variable "core_instance_group_bid_price" {
 #=================================================================#
 
 variable "key_name" {
-  default = "data-mgmt"
+  default = "emr"
 }
 
 variable "subnet_id" {
-  default = "subnet-xxxxxxxx"
+  default = "subnet-0f3c3da05ff1cc48e"
 }
 
 variable "instance_profile" {
@@ -268,15 +268,15 @@ variable "instance_profile" {
 }
 
 variable "service_access_security_group"{
-  default =  "sg-xxxxxxxx"
+  default =  "sg-07122f487a48c008c"
 }
   
-variable "emr_managed_master_security_group" {
-  default = "sg-xxxxxxxxx"
+variable "emr_managed_primary_security_group" {
+  default = "sg-040610a1fd254cdc1"
 }
 
-variable "emr_managed_slave_security_group" {
-  default = "sg-xxxxxxxxxx"
+variable "emr_managed_core_security_group" {
+  default = "sg-09be9d23978a3fb9d"
 }
 
 variable "service_role" {

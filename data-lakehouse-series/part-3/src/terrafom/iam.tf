@@ -57,7 +57,7 @@ resource "aws_iam_role_policy" "lakehouse_policy" {
 }
 
 resource "aws_iam_policy_attachment" "lakehouse-attach" {
-  name       = "lakehouse-attachment"
+  name       = "bastion-lakehouse-attachment"
   roles      = [aws_iam_role.lakehouse_role.name]
   policy_arn = "arn:aws:iam::aws:policy/AmazonAthenaFullAccess"
 }

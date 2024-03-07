@@ -358,23 +358,23 @@ resource "aws_emr_cluster" "cluster" {
   ec2_attributes {
     key_name                          = "${var.key_name}"
     subnet_id                         = "${var.subnet_id}"
-    emr_managed_master_security_group = "${var.emr_managed_master_security_group}"
-    emr_managed_slave_security_group  = "${var.emr_managed_slave_security_group}"
-    #service_access_security_group = "${var.service_access_security_group}"
+    emr_managed_master_security_group = "${var.emr_managed_primary_security_group}"
+    emr_managed_slave_security_group  = "${var.emr_managed_core_security_group}"
+    # service_access_security_group = "${var.service_access_security_group}"
     instance_profile               = "${var.instance_profile}"
   }
 
 
 master_instance_group {
-      name           = "${var.master_instance_group_name}"
-      instance_type  = "${var.master_instance_group_instance_type}"
-      instance_count = "${var.master_instance_group_instance_count}"
-      bid_price      = "${var.master_instance_group_bid_price}"    
+      name           = "${var.primary_instance_group_name}"
+      instance_type  = "${var.primary_instance_group_instance_type}"
+      instance_count = "${var.primary_instance_group_instance_count}"
+      bid_price      = "${var.primary_instance_group_bid_price}"    
       ebs_config {
-                    #iops = "${var.master_instance_group_ebs_iops}"
-                    size = "${var.master_instance_group_ebs_size}"
-                    type = "${var.master_instance_group_ebs_type}"
-                    volumes_per_instance = "${var.master_instance_group_ebs_volumes_per_instance}"
+                    #iops = "${var.primary_instance_group_ebs_iops}"
+                    size = "${var.primary_instance_group_ebs_size}"
+                    type = "${var.primary_instance_group_ebs_type}"
+                    volumes_per_instance = "${var.primary_instance_group_ebs_volumes_per_instance}"
                     }
 
 
