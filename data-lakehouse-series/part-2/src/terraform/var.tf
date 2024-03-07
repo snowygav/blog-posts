@@ -214,7 +214,7 @@ variable "core_instance_group_name" {
 variable "core_instance_group_instance_type" {
   type        = string
   description = "EC2 instance type for all instances in the Core instance group"
-  default = "c6g.2xlarge"
+  default = "c6g.xlarge"
 }
 
 variable "core_instance_group_instance_count" {
