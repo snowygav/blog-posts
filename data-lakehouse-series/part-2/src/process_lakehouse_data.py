@@ -11,7 +11,7 @@ log = Logger()
 
 def create_temp_views():
     try:
-        bucket_name = "dataeng-blog-series"
+        bucket_name = "bastion-dataeng-blog-series"
         green_taxi_trusted = f"s3://{bucket_name}/trusted/green_taxi/"
         yellow_taxi_trusted = f"s3://{bucket_name}/trusted/yellow_taxi/"
         zone_lookup_taxi_trusted = f"s3://{bucket_name}/trusted/zone_lookup_taxi/"
@@ -201,7 +201,7 @@ def total_trip_month_span_taxi_type(path):
 
 if __name__ == '__main__':
     log.info("Beginning of Data Lakehouse tables creation.")
-    lakehouse_path = "s3://dataeng-blog-series/refined/"
+    lakehouse_path = "s3://bastion-dataeng-blog-series/refined/"
     create_temp_views()
     total_payment_method_type(lakehouse_path)
     total_passenger_taxi_type(lakehouse_path)

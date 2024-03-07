@@ -224,7 +224,7 @@ variable "emr_configurations_json" {
 }  
 
 variable "emr_log_uri" {
-  default = "s3://dataeng-blog-series/emr-logs/"
+  default = "s3://bastion-dataeng-blog-series/emr-logs/"
 }
 
 variable "emr_steps" {

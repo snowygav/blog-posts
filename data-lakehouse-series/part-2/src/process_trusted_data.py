@@ -113,7 +113,7 @@ def load_data_zone_lookup(spark, path_file):
 
 
 def process_data(type):
-    bucket_name = "dataeng-blog-series"
+    bucket_name = "bastion-dataeng-blog-series"
     raw_path = f"s3://{bucket_name}/raw/{type}_taxi/"
     trusted_path = f"s3://{bucket_name}/trusted/{type}_taxi/"
     bucket_key = f"{raw_path.split('/')[3]}/{raw_path.split('/')[4]}/"
