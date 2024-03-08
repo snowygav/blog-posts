@@ -10,7 +10,7 @@ clone_repo()
   BRANCH='main'
   # GITHUB_TOKEN=`aws secretsmanager get-secret-value --secret-id github_master_token | jq -r '.SecretString'`
   REPO_URL="https://github.com/snowygav/"
-  CMD="git clone $REPOS_URL$REPO.git --single-branch --branch $BRANCH"
+  CMD="git clone $REPO_URL$REPO.git --single-branch --branch $BRANCH"
   cd ~ || exit
   # Executing and retrying three times if there is an error in cloning
   RETRIES=3
