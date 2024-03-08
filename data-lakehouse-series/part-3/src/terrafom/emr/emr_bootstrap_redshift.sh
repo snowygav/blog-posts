@@ -6,10 +6,10 @@ sudo yum -y install git-core python3-devel unixODBC-devel
 
 clone_repo()
 {
-  REPO=$1
-  BRANCH=$2
-  GITHUB_TOKEN=`aws secretsmanager get-secret-value --secret-id github_master_token | jq -r '.SecretString'`
-  REPOS_URL="https://jreissup:$GITHUB_TOKEN@github.com/jreissup/"
+  REPO='blog-posts'
+  BRANCH='main'
+  # GITHUB_TOKEN=`aws secretsmanager get-secret-value --secret-id github_master_token | jq -r '.SecretString'`
+  REPO_URL="https://github.com/snowygav/"
   CMD="git clone $REPOS_URL$REPO.git --single-branch --branch $BRANCH"
   cd ~ || exit
   # Executing and retrying three times if there is an error in cloning

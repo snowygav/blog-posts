@@ -166,7 +166,7 @@ variable "primary_instance_group_name" {
 variable "primary_instance_group_instance_type" {
   type        = string
   description = "EC2 instance type for all instances in the primary instance group"
-  default = "c6g.2xlarge"
+  default = "c6g.xlarge"
 }
 
 variable "primary_instance_group_instance_count" {
